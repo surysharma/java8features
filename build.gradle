@@ -1,0 +1,26 @@
+group 'com.functional'
+version '1.0-SNAPSHOT'
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.5'
+  distributionUrl = "https://services.gradle.org/distributions/gradle-$gradleVersion-all.zip"
+}
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile ('org.mockito:mockito-core:1.10.19') {
+        exclude group: 'org.hamcrest'
+    }
+    testCompile ('junit:junit:4.11'){
+        exclude group: 'org.hamcrest'
+    }
+    testCompile 'org.hamcrest:hamcrest-library:1.3'
+}
+

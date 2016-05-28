@@ -1,0 +1,11 @@
+out
+build
+**/*.iml
+**/*.ipr
+**/*.iws
+.idea
+.gradle
+*.log
+*.log.*
+classes
+
