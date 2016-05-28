@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.stream.IntStream;
 
 import static java.util.Arrays.asList;
 import static java.util.Comparator.comparing;
@@ -158,6 +159,17 @@ public class Java8StreamTest {
         // then
         assertThat(max.isPresent(), is(true));
         assertThat(max.get().getValue(), is(300));
+    }
+
+    @Test
+    public void should_find_total_of_all_transactions(){
+        // when
+        int sum = transactions.stream()
+                .mapToInt(Transaction::getValue)
+                .sum();
+
+        // then
+        assertThat(sum, is(4060));
     }
 
 }
